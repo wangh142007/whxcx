@@ -10,14 +10,15 @@
       </block>
     </swiper>
     <div>
-      <ListTmp/>
+      <ListTmp v-for="(item,index) in listTem" :key="index"/>
     </div>
   </div>
   
 </template>
 
 <script>
-  import ListTmp from '../list_template/list_template.vue'
+import {mapState} from 'vuex'
+import ListTmp from '../list_template/list_template.vue'
 
 export default {
   components: {ListTmp},
@@ -29,6 +30,14 @@ export default {
       '/static/images/detail/carousel/03.jpg'
       ]
     }
+  },
+  beforeMount(){
+    //分发action 修改状态
+    this.$store.dispatch('getList')
+  },
+  compunted:{
+    //去映射状态到本组件
+    ...mapState(['listTem'])
   }
 }
 </script>
