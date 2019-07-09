@@ -1,9 +1,12 @@
-import {RECEIVE_LIST} from './mutations-type'
+import {RECEIVE_LIST, MOVIES_ARR} from './mutations-type'
 import listData from '../datas/list-data'
 export default {
   getList({commit}){
     //触发对应的mutation
-    console.log(action)
-    commit(RECEIVE_LIST, listData)
+    console.log("actions");
+    commit(RECEIVE_LIST, listData);
+  },
+  getMoviesArr({commit}, data){
+    commit(MOVIES_ARR, data)
   }
 }
